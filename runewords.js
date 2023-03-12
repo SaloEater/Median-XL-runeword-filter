@@ -128,10 +128,14 @@
 		let index = 0;
 
 		for (var i = 0; i < columns; ++i) {
+			if (i * 10 >= runeNames.length) {
+				break
+			}
+			
 			var column = document.createElement('div'); // create column
 			column.className = 'column';
 			for (var j = 0; j < rows; ++j) {
-				let nextIndex = j + i * 10
+				let nextIndex = j + i * rows
 
 				if (nextIndex >= runeNames.length) {
 					break
@@ -139,7 +143,7 @@
 
 				let runeName = runeNames[nextIndex]
 
-				const checkBox = document.createElement('input')
+				let checkBox = document.createElement('input')
 				checkBox.type = "checkbox";
 				checkBox.checked = selectedRunes.indexOf(runeName) != -1
 				checkBox.name = runeName;
@@ -186,7 +190,6 @@
 			}
 			.grid {
 				display: flex;   /* <--- required */
-				flex-direction: row
 			}
 
 			.column {
@@ -194,7 +197,6 @@
 			}
 
 			.row {
-				margin: 2px;
 				font-size: 15px;
 			}
 			` );
