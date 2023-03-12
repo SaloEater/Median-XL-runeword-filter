@@ -7,6 +7,7 @@
 // @match        https://docs.median-xl.com/doc/items/runewords
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=median-xl.com
 // @grant GM_addStyle
+// @license MIT
 // ==/UserScript==
 
 (function() {
