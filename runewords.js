@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         Filter Median XL Runewords
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Filter runewords at https://docs.median-xl.com/doc/items/runewords
