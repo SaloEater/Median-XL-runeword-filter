@@ -12,7 +12,7 @@
 
 (function() {
     'use strict';
-	
+
 	let getURLText = (uri) => {
 		const xhr = new XMLHttpRequest();
 		xhr.open("GET", uri, false);
@@ -31,7 +31,7 @@
     }
 
 	let trimRune = (rune) => rune.trim().replaceAll('\'', '')
-	
+
 	let getRuneGroup = (firstRune) => {
 		let runesRaw = getRunes()
 		let socketables = runesRaw.querySelectorAll('td > span.item-eruneword')
@@ -41,7 +41,7 @@
 		for (let socketable of socketables.values()) {
             let rune = trimRune(socketable.innerText)
             runes.push(rune);
-			
+
 			if (rune == firstRune) {
 				elRune = socketable
 				break;
@@ -79,11 +79,11 @@
 				if (socketable.childNodes.length < 4) {
 					console.log('Missing socketable name element');
 				}
-				
+
 				if (socketable.childNodes[3].childNodes.length < 2) {
 					console.log('Missing socketable actual name element');
 				}
-				
+
 				runeNames.push(socketable.childNodes[3].childNodes[1].innerText.trim())
 			}
 		}
@@ -102,7 +102,7 @@
 		for (let runeWord of runesWords.values()) {
 			runeWord.parentNode.parentNode.style.display = "table-row"
 		}
-		
+
 		if (runes.length == 0) {
 			return
 		}
@@ -128,10 +128,10 @@
 		let index = 0;
 
 		for (var i = 0; i < columns; ++i) {
-			if (i * 10 >= runeNames.length) {
+			if (i * rows >= runeNames.length) {
 				break
 			}
-			
+
 			var column = document.createElement('div'); // create column
 			column.className = 'column';
 			for (var j = 0; j < rows; ++j) {
@@ -140,7 +140,7 @@
 				if (nextIndex >= runeNames.length) {
 					break
 				}
-
+console.log(nextIndex)
 				let runeName = runeNames[nextIndex]
 
 				let checkBox = document.createElement('input')
