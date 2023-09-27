@@ -166,19 +166,19 @@
 				}
 //console.log(nextIndex)
 				let runeName = runeNames[nextIndex]
+				let runeRealName = getRuneRealName(runeName)
 
 				let checkBox = document.createElement('input')
 				checkBox.type = "checkbox";
-				checkBox.checked = selectedRunes.indexOf(runeName) != -1
+				checkBox.checked = selectedRunes.indexOf(runeRealName) != -1
 				checkBox.name = runeName;
 				checkBox.value = runeName;
 				checkBox.id = runeName;
 				checkBox.addEventListener('change', (event) => {
-					runeName = getRuneRealName(runeName)
 					if (event.currentTarget.checked) {
-						selectedRunes.push(runeName);
+						selectedRunes.push(runeRealName);
 					} else {
-						selectedRunes = selectedRunes.filter(i => i != runeName)
+						selectedRunes = selectedRunes.filter(i => i != runeRealName)
 					}
 					localStorage.setItem('selectedRunes', JSON.stringify(selectedRunes));
 				});
