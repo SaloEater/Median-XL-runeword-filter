@@ -49,7 +49,7 @@
 		}
 
 		if (!elRune) {
-			console.log('Missing ' + firstRune + ' rune group')
+			//console.log('Missing ' + firstRune + ' rune group')
 		}
 
 		return elRune.parentNode.parentNode.parentNode;
@@ -77,11 +77,11 @@
 
 			for (let socketable of runesTD) {
 				if (socketable.childNodes.length < 4) {
-					console.log('Missing socketable name element');
+					//console.log('Missing socketable name element');
 				}
 
 				if (socketable.childNodes[3].childNodes.length < 2) {
-					console.log('Missing socketable actual name element');
+					//console.log('Missing socketable actual name element');
 				}
 
 				runeNames.push(socketable.childNodes[3].childNodes[1].innerText.trim())
@@ -120,6 +120,30 @@
 	const mainDiv = document.createElement('div')
 	mainDiv.id = 'myContainer'
 
+	function getRuneRealName(runeName) {
+		switch(runeName) {
+			case "Fire":
+				runeName = "Ign"
+				break
+			case "Stone":
+				runeName = "Sil"
+				break
+			case "Arcane":
+				runeName = "Arc"
+				break
+			case "Poison":
+				runeName = "Ven"
+				break
+			case "Light":
+				runeName = "Ful"
+				break
+			case "Ice":
+				runeName = "Gla"
+				break
+		}
+		return runeName
+	}
+
 	let showUI2 = () => {
 		const grid = document.createElement('div');
 		grid.className = 'grid'
@@ -140,7 +164,7 @@
 				if (nextIndex >= runeNames.length) {
 					break
 				}
-console.log(nextIndex)
+//console.log(nextIndex)
 				let runeName = runeNames[nextIndex]
 
 				let checkBox = document.createElement('input')
@@ -150,6 +174,7 @@ console.log(nextIndex)
 				checkBox.value = runeName;
 				checkBox.id = runeName;
 				checkBox.addEventListener('change', (event) => {
+					runeName = getRuneRealName(runeName)
 					if (event.currentTarget.checked) {
 						selectedRunes.push(runeName);
 					} else {
